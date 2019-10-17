@@ -13,7 +13,7 @@ class Header extends Component {
         public: true
       },
       {
-        name: "Furnitures",
+        name: "Shop",
         linkTo: "/shop",
         public: true
       }
@@ -107,7 +107,7 @@ class Header extends Component {
       <header className="bck_b_light">
         <div className="container">
           <div className="left">
-            <div className="logo">mabelku</div>
+            <div className="logo">furnitour</div>
           </div>
           <div className="right">
             <div className="top">{this.showLinks(this.state.user)}</div>
