@@ -28,11 +28,11 @@ a {
 }
 
 .bck_b_light {
-    background: #999592;
+    background: #313131;
 }
 
 .bck_b_dark {
-    background: #272723;
+    background: #080808;
 }
 
 .dialog_alert {
@@ -247,7 +247,7 @@ header {
     position: fixed;
     z-index: 999;
     width: 100%;
-    border-bottom: 1px solid white;
+
 }
 
 header .logo {
@@ -271,8 +271,7 @@ header .container .left{
 
 header .container .right{
    flex-grow: 1;
-   border-left: 1px solid #eeeeee;
-   border-right: 1px solid #eeeeee;
+
 }
 header .container .right .top ,
 header .container .right .bottom {
@@ -286,7 +285,7 @@ header .container .right .bottom {
 
 header .container .right .top {
     color:#c9c9c9;
-    border-bottom: 1px solid #ffffff;
+ 
 }
 
 header .cart_link {
@@ -370,7 +369,7 @@ footer .business_nfo .nfo {
 
 .featured_container .featured_action {
     position: absolute;
-    top: 45%;
+    top: 32%;
     left: 8%;
 }
 

@@ -5,7 +5,7 @@ import MyButton from "../utils/button";
 const HomeSlider = props => {
   const slides = [
     {
-      img: "/images/featured/featured_home.jpg",
+      img: "/images/featured/featured_home.png",
       lineOne: "Fender",
       lineTwo: "Custom Shop",
       linkTitle: "Shop now",
