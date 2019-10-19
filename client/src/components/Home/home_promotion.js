@@ -3,7 +3,7 @@ import MyButton from "../utils/button";
 
 const HomePromotion = props => {
   const promotion = {
-    img: "/images/featured/featured_home_3.jpg",
+    img: "/images/featured/featured_home_3.png",
     lineOne: "Up to 40% off",
     lineTwo: "In promo soft opening ",
     linkTitle: "Shop now",
