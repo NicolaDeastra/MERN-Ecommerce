@@ -7,7 +7,10 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 
 mongoose.Promise = global.Promise;
-mongoose.connect(process.env.DATABASE);
+mongoose.connect(process.env.DATABASE, {
+  useUnifiedTopology: true,
+  useNewUrlParser: true
+});
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());

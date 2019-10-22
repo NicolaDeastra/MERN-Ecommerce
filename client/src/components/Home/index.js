@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import HomeSlider from "./home_slider";
+import HomeHeader from "./home_header";
+
 import HomePromotion from "./home_promotion";
 import CardBlock from "../utils/card_block";
 
@@ -18,7 +19,8 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <HomeSlider />
+        <HomeHeader />
+
         <CardBlock
           list={this.props.products.bySell}
           title="Best Selling Furniture"

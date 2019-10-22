@@ -1,32 +1,31 @@
 import React from "react";
 import Slider from "react-slick";
-import MyButton from "../utils/button";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const HomeSlider = props => {
   const slides = [
     {
-      img: "/images/featured/featured_home.png",
-      lineOne: "Fender",
-      lineTwo: "Custom Shop",
-      linkTitle: "Shop now",
-      linkTo: "/shop"
+      img: "/images/featured/featured_home.png"
     },
     {
-      img: "/images/featured/featured_home_2.jpg",
-      lineOne: "B-Stock",
-      lineTwo: "Awesome discount",
-      linkTitle: "View offers",
-      linkTo: "/shop"
+      img: "/images/featured/featured_home_2.png"
+    },
+    {
+      img: "/images/featured/featured_home_3.png"
     }
   ];
 
   const settings = {
-    dots: false,
+    dots: true,
+    arrows: false,
     infinite: true,
-    speed: 500,
+    autoplay: true,
+    autoplaySpeed: 4500,
+    speed: 1000,
     slidesToShow: 1,
     slideToScroll: 1,
-    arrows: false
+    fade: true
   };
 
   const generateSlides = () =>
@@ -37,33 +36,15 @@ const HomeSlider = props => {
               className="featured_image"
               style={{
                 background: `url(${item.img})`,
-                height: `${window.innerHeight}px`
+                height: `350px`,
+                width: `550px`
               }}
-            >
-              <div className="featured_action">
-                <div className="tag title">{item.lineOne}</div>
-                <div className="tag low_title">{item.lineTwo}</div>
-                <div>
-                  <MyButton
-                    type="default"
-                    title={item.linkTitle}
-                    linkTo={item.linkTo}
-                    addStyles={{
-                      margin: "10px 0 0 0"
-                    }}
-                  />
-                </div>
-              </div>
-            </div>
+            ></div>
           </div>
         ))
       : null;
 
-  return (
-    <div className="featured_container">
-      <Slider {...settings}>{generateSlides()}</Slider>
-    </div>
-  );
+  return <Slider {...settings}>{generateSlides()}</Slider>;
 };
 
 export default HomeSlider;
