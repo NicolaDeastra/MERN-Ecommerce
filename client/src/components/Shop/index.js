@@ -56,9 +56,20 @@ class Shop extends Component {
       newFilters[category] = priceValues;
     }
 
+    this.showFilteredResults(newFilters);
     this.setState({
       filters: newFilters
     });
+  };
+
+  showFilteredResults = filters => {
+    this.props
+      .dispatch(getProductsToShop(0, this.state.limit, filters))
+      .then(() => {
+        this.setState({
+          skip: 0
+        });
+      });
   };
 
   render() {
