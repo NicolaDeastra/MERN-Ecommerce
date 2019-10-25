@@ -82,7 +82,7 @@ class Shop extends Component {
             <div className="left">
               <CollapseCheckbox
                 initState={true}
-                title="Brands"
+                title="Category"
                 list={products.brands}
                 handleFilters={filters => this.handleFilters(filters, "brand")}
               />
@@ -94,7 +94,7 @@ class Shop extends Component {
               />
               <CollapseCheckbox
                 initState={false}
-                title="Wood"
+                title="Room want to improve"
                 list={products.woods}
                 handleFilters={filters => this.handleFilters(filters, "wood")}
               />

@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: "Oswald", sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   color: #404040;
 }
 
@@ -28,7 +28,7 @@ a {
 }
 
 .bck_b_light {
-  background: #313131;
+  background: #212121;
 }
 
 .bck_b_dark {
@@ -113,7 +113,7 @@ button {
   padding: 10px;
   background: #e1ddc3;
   margin-top: 10px;
-  font-family: "Oswald", sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   font-size: 16px;
 }
 
@@ -233,7 +233,6 @@ select {
 ==============================*/
 
 .page_top {
-  border-bottom: 1px solid #999592;
   padding: 20px 0px;
   text-transform: uppercase;
 }
@@ -352,20 +351,23 @@ footer .business_nfo .nfo {
 ==============================*/
 
 .featured_container {
- background: rgb(245,245,245);
-background: linear-gradient(90deg, rgba(245,245,245,1) 0%, rgba(236,236,236,1) 55%, rgba(226,226,226,1) 100%);
+  background: rgb(246, 246, 246);
+  background: linear-gradient(
+    90deg,
+    rgba(246, 246, 246, 1) 0%,
+    rgba(234, 233, 233, 1) 50%,
+    rgba(212, 215, 221, 1) 100%
+  );
   width: 100%;
   height: 610px;
 }
 .featured_container .sliderWrapper {
-    position: absolute;
-    height: 450px;
-    width: 550px;
-    left: 55%;
-    top: 25%;
+  position: absolute;
+  height: 450px;
+  width: 550px;
+  left: 55%;
+  top: 25%;
 }
-
-
 
 .featured_container .featured_image {
   position: relative;
@@ -378,20 +380,19 @@ background: linear-gradient(90deg, rgba(245,245,245,1) 0%, rgba(236,236,236,1) 5
 }
 
 .featured_container .featured_action .tag {
-  background: #82828287;
-  color: #ffffff;
-  padding: 0px 20px;
-  text-transform: uppercase;
+  color: #080808;
   display: table;
+  width: 43%;
 }
 
 .featured_container .featured_action .tag.title {
-  font-size: 70px;
+  text-transform: uppercase;
+  font-size: 47px;
   font-weight: 700;
 }
 
 .featured_container .featured_action .tag.low_title {
-  font-size: 50px;
+  font-size: 18px;
   font-weight: 300;
   margin-top: 10px;
 }
@@ -402,8 +403,13 @@ background: linear-gradient(90deg, rgba(245,245,245,1) 0%, rgba(236,236,236,1) 5
 
 .home_promotion .home_promotion_img {
   height: 400px;
-  background-size: cover !important;
-  background-position: top center !important;
+  background: rgb(246, 246, 246);
+  background: linear-gradient(
+    90deg,
+    rgba(246, 246, 246, 1) 0%,
+    rgba(234, 233, 233, 1) 50%,
+    rgba(212, 215, 221, 1) 100%
+  );
   padding: 73px;
   box-sizing: border-box;
 }
