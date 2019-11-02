@@ -14,7 +14,7 @@ const MyButton = props => {
           <Link
             className={!props.altClass ? "link_default" : props.altClass}
             to={props.linkTo}
-            {...props.addStyles}
+            style={props.addStyles}
           >
             {props.title}
           </Link>

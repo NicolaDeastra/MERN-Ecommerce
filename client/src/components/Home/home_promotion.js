@@ -21,7 +21,7 @@ const HomePromotion = props => {
             title={promotion.linkTitle}
             linkTo={promotion.linkTo}
             addStyles={{
-              margin: "10px 0 0 0"
+              margin: "25px 45% 0"
             }}
           />
         </div>
