@@ -9,6 +9,7 @@ import {
   populateOptionFields,
   resetFields
 } from "../../utils/Form/formActions";
+import fileUpload from "../../utils/Form/fileupload";
 
 import { connect } from "react-redux";
 import {
@@ -177,6 +178,16 @@ class AddProduct extends Component {
         touched: false,
         validationMessage: "",
         showlabel: true
+      },
+      images: {
+        value: [],
+        validation: {
+          required: false
+        },
+        valid: true,
+        touched: false,
+        validationMessage: "",
+        showlabel: false
       }
     }
   };
@@ -257,6 +268,8 @@ class AddProduct extends Component {
     });
   }
 
+  imagesHandler = () => {};
+
   render() {
     return (
       <UserLayout>
@@ -264,73 +277,65 @@ class AddProduct extends Component {
           <h1>Add product</h1>
 
           <form onSubmit={event => this.submitForm(event)}>
+            <fileUpload
+              imagesHandler={images => this.imagesHandler(images)}
+              reset={this.state.formSuccess}
+            />
+
             <FormField
               id={"name"}
               formdata={this.state.formdata.name}
               change={element => this.updateForm(element)}
             />
-
             <FormField
               id={"description"}
               formdata={this.state.formdata.description}
               change={element => this.updateForm(element)}
             />
-
             <FormField
               id={"price"}
               formdata={this.state.formdata.price}
               change={element => this.updateForm(element)}
             />
             <div className="form_devider"></div>
-
             <FormField
               id={"brand"}
               formdata={this.state.formdata.brand}
               change={element => this.updateForm(element)}
             />
-
             <FormField
               id={"shipping"}
               formdata={this.state.formdata.shipping}
               change={element => this.updateForm(element)}
             />
-
             <FormField
               id={"available"}
               formdata={this.state.formdata.available}
               change={element => this.updateForm(element)}
             />
-
             <div className="form_devider"></div>
-
             <FormField
               id={"wood"}
               formdata={this.state.formdata.wood}
               change={element => this.updateForm(element)}
             />
-
             <FormField
               id={"frets"}
               formdata={this.state.formdata.frets}
               change={element => this.updateForm(element)}
             />
-
             <div className="form_devider"></div>
-
             <FormField
               id={"publish"}
               formdata={this.state.formdata.publish}
               change={element => this.updateForm(element)}
             />
-
             {this.state.formSuccess ? (
               <div className="form_success">Success</div>
             ) : null}
-
             {this.state.formError ? (
               <div className="error_label">Please check your data</div>
             ) : null}
-
             <button onClick={event => this.submitForm(event)}>
               Add product
             </button>
