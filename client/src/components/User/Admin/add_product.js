@@ -9,7 +9,7 @@ import {
   populateOptionFields,
   resetFields
 } from "../../utils/Form/formActions";
-import fileUpload from "../../utils/Form/fileupload";
+import FileUpload from "../../utils/Form/fileupload";
 
 import { connect } from "react-redux";
 import {
@@ -268,7 +268,18 @@ class AddProduct extends Component {
     });
   }
 
-  imagesHandler = () => {};
+  imagesHandler = images => {
+    const newFormData = {
+      ...this.state.formdata
+    };
+
+    newFormData["images"].value = images;
+    newFormData["images"].valid = true;
+
+    this.setState({
+      formdata: newFormData
+    });
+  };
 
   render() {
     return (
@@ -277,11 +288,10 @@ class AddProduct extends Component {
           <h1>Add product</h1>
 
           <form onSubmit={event => this.submitForm(event)}>
-            <fileUpload
+            <FileUpload
               imagesHandler={images => this.imagesHandler(images)}
               reset={this.state.formSuccess}
             />
-
             <FormField
               id={"name"}
               formdata={this.state.formdata.name}

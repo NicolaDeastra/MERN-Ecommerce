@@ -4,7 +4,7 @@ import axios from "axios";
 
 import FontAwesomeIcon from "@fortawesome/react-fontawesome";
 import faPlusCircle from "@fortawesome/fontawesome-free-solid/faPlusCircle";
-import CircularProgres from "@material-ui/core/CircularProgres";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 class Fileupload extends Component {
   constructor() {
@@ -36,7 +36,21 @@ class Fileupload extends Component {
     });
   };
 
-  showUploadedImages = () => {};
+  onRemove = id => {};
+
+  showUploadedImages = () =>
+    this.state.uploadedFiles.map(item => (
+      <div
+        className="dropzone_box"
+        key={item.public_id}
+        onClick={() => this.onRemove(item.public_id)}
+      >
+        <div
+          className="wrap"
+          style={{ background: `url(${item.url}) no-repeat` }}
+        ></div>
+      </div>
+    ));
 
   render() {
     return (
@@ -49,7 +63,7 @@ class Fileupload extends Component {
               className="dropzone_box"
             >
               <div className="wrap">
-                <FontAwesomeIcon icon={faPlusCircles} />
+                <FontAwesomeIcon icon={faPlusCircle} />
               </div>
             </Dropzone>
             {this.showUploadedImages()}
@@ -61,7 +75,7 @@ class Fileupload extends Component {
                   paddingTop: "60px"
                 }}
               >
-                <CircularProgres style={{ color: "#00bcd4" }} thickness={7} />
+                <CircularProgress style={{ color: "#00bcd4" }} thickness={7} />
               </div>
             ) : null}
           </div>
