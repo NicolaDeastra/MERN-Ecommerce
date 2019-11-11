@@ -85,7 +85,12 @@ export const resetFields = (formdata, formName) => {
   const newFormdata = { ...formdata };
 
   for (let key in newFormdata) {
-    newFormdata[key].value = "";
+    if (key === "images") {
+      newFormdata[key].value = [];
+    } else {
+      newFormdata[key].value = "";
+    }
+
     newFormdata[key].valid = false;
     newFormdata[key].touched = false;
     newFormdata[key].validationMessage = "";
