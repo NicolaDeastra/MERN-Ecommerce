@@ -79,7 +79,7 @@ class AddProduct extends Component {
         element: "select",
         value: "",
         config: {
-          label: "Product Brand",
+          label: "Categories",
           name: "brands_input",
           options: []
         },
@@ -97,7 +97,10 @@ class AddProduct extends Component {
         config: {
           label: "Shipping",
           name: "shipping_input",
-          options: [{ key: true, value: "Yes" }, { key: false, value: "No" }]
+          options: [
+            { key: true, value: "Yes" },
+            { key: false, value: "No" }
+          ]
         },
         validation: {
           required: true
@@ -113,7 +116,10 @@ class AddProduct extends Component {
         config: {
           label: "Available, in stock",
           name: "available_input",
-          options: [{ key: true, value: "Yes" }, { key: false, value: "No" }]
+          options: [
+            { key: true, value: "Yes" },
+            { key: false, value: "No" }
+          ]
         },
         validation: {
           required: true
@@ -127,7 +133,7 @@ class AddProduct extends Component {
         element: "select",
         value: "",
         config: {
-          label: "Wood material",
+          label: "Material",
           name: "wood_input",
           options: []
         },
@@ -143,13 +149,13 @@ class AddProduct extends Component {
         element: "select",
         value: "",
         config: {
-          label: "Frets",
+          label: "Work Proses",
           name: "frets_input",
           options: [
-            { key: 20, value: "20" },
-            { key: 21, value: "21" },
-            { key: 22, value: "22" },
-            { key: 24, value: "24" }
+            { key: 5, value: "1-9 Hari" },
+            { key: 10, value: "10-15 Hari" },
+            { key: 15, value: "16-20 Hari" },
+            { key: 20, value: "1 Bulan" }
           ]
         },
         validation: {
