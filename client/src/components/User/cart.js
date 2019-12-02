@@ -3,11 +3,13 @@ import UserLayout from "../../hoc/user";
 import UserProductBlock from "../utils/User/product_block";
 
 import { connect } from "react-redux";
-import { getCartItems } from "../../actions/user_actions";
+import { getCartItems, removeCartItem } from "../../actions/user_actions";
 
 import FontAwesomeIcon from "@fortawesome/react-fontawesome";
 import faFrown from "@fortawesome/fontawesome-free-solid/faFrown";
 import faSmile from "@fortawesome/fontawesome-free-solid/faSmile";
+
+import PayPal from "../utils/paypal";
 
 class UserCart extends Component {
   state = {
@@ -51,7 +53,17 @@ class UserCart extends Component {
     });
   };
 
-  removeFromCart = () => {};
+  removeFromCart = id => {
+    this.props.dispatch(removeCartItem(id)).then(() => {
+      if (this.props.user.cartDetail.length <= 0) {
+        this.setState({
+          showTotal: false
+        });
+      } else {
+        this.calculateTotal(this.props.user.cartDetail);
+      }
+    });
+  };
 
   showNoItemMessage = () => (
     <div className="cart_no_items">
@@ -59,6 +71,12 @@ class UserCart extends Component {
       <div>You have no item</div>
     </div>
   );
+
+  transactionError = () => {};
+
+  transactionCanceled = () => {};
+
+  transactionSuccess = () => {};
 
   render() {
     return (
@@ -88,7 +106,14 @@ class UserCart extends Component {
             )}
           </div>
           {this.state.showTotal ? (
-            <div className="paypal_button_container">PayPal</div>
+            <div className="paypal_button_container">
+              <PayPal
+                toPay={this.state.total}
+                transactionError={data => this.transactionError(data)}
+                transactionCanceled={data => this.transactionCanceled(data)}
+                onSuccess={data => this.transactionSuccess(data)}
+              />
+            </div>
           ) : null}
         </div>
       </UserLayout>

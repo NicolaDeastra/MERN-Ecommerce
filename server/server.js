@@ -13,6 +13,7 @@ mongoose.connect(process.env.DATABASE, {
   useUnifiedTopology: true,
   useNewUrlParser: true
 });
+mongoose.set("useFindAndModify", false);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -304,6 +305,30 @@ app.post("/api/users/addToCart", auth, (req, res) => {
       );
     }
   });
+});
+
+app.get("/api/users/removeFromCart", auth, (req, res) => {
+  User.findOneAndUpdate(
+    { _id: req.user._id },
+    { $pull: { cart: { id: mongoose.Types.ObjectId(req.query._id) } } },
+    { new: true },
+    (err, doc) => {
+      let cart = doc.cart;
+      let array = cart.map(item => {
+        return mongoose.Types.ObjectId(item.id);
+      });
+
+      Product.find({ _id: { $in: array } })
+        .populate("brand")
+        .populate("wood")
+        .exec((err, cardDetail) => {
+          return res.status(200).json({
+            cartDetail,
+            cart
+          });
+        });
+    }
+  );
 });
 
 const port = process.env.PORT || 3002;

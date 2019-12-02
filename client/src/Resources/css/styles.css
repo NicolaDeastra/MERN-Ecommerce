@@ -392,13 +392,8 @@ footer .business_nfo .nfo {
 
 .home_promotion .home_promotion_img {
   height: 400px;
-  background: rgb(246, 246, 246);
-  background: linear-gradient(
-    90deg,
-    rgba(246, 246, 246, 1) 0%,
-    rgba(234, 233, 233, 1) 50%,
-    rgba(212, 215, 221, 1) 100%
-  );
+  background: rgb(37,36,36);
+background: linear-gradient(90deg, rgba(37,36,36,1) 0%, rgba(47,47,47,1) 49%, rgba(83,83,83,1) 100%);
   padding: 73px;
   box-sizing: border-box;
 }
